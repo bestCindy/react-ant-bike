@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Menu } from "antd";
-import "./index.less"
-import MenuConfig from "./../../config/menuConfig"
+import "./index.less";
+import MenuConfig from "./../../config/menuConfig";
 
 const { SubMenu } = Menu;
 
 class NavLeft extends Component {
     constructor(props) {
         super(props);
+        this.rootSubmenuKeys = [];
         this.state = {}
     }
 
@@ -15,13 +16,27 @@ class NavLeft extends Component {
         const menuTreeNode = this.renderMenu(MenuConfig);
 
         this.setState({
-            menuTreeNode
+            menuTreeNode,
+            openKeys: [],
         });
     }
+
+  
+    onOpenChange = openKeys => {
+        const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+        if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+            this.setState({ openKeys });
+        } else {
+            this.setState({
+                openKeys: latestOpenKey ? [latestOpenKey] : [],
+            });
+        }
+    };
 
     // 菜单渲染
     renderMenu = (data) => {
         return data.map(item => {
+            this.rootSubmenuKeys.push(item.key);
             if (item.children) {
                 return (
                     <SubMenu title={item.title} key={item.key}> 
@@ -29,7 +44,7 @@ class NavLeft extends Component {
                     </SubMenu>
                 )
             }
-        return <Menu.Item title={item.title} key={item.key}>{item.title}</Menu.Item>
+            return <Menu.Item title={item.title} key={item.key}>{item.title}</Menu.Item>
         })
     }
 
@@ -40,7 +55,7 @@ class NavLeft extends Component {
                     <img src="/assets/logo-ant.svg" alt="" />
                     <h1>Cindy MS</h1>
                 </div>
-                <Menu theme="dark" mode="vertical">
+                <Menu theme="dark" mode="inline" openKeys={this.state.openKeys} onOpenChange={this.onOpenChange.bind(this)}>
                     { this.state.menuTreeNode }
                 </Menu>
             </div>

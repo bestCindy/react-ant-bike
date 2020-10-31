@@ -8,7 +8,7 @@ import "./index.less";
 class Header extends Component {
     componentWillMount() {
         this.setState({
-            userName: "河畔一角"
+            userName: "半亩方塘"
         });
         setInterval(() => {
             let sysTime = Utils.formateDate(new Date().getTime());
