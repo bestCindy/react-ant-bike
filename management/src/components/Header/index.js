@@ -10,12 +10,12 @@ class Header extends Component {
         this.setState({
             userName: "半亩方塘"
         });
-        setInterval(() => {
-            let sysTime = Utils.formateDate(new Date().getTime());
-            this.setState({
-                sysTime
-            });
-        }, 1000);
+        // setInterval(() => {
+        //     let sysTime = Utils.formateDate(new Date().getTime());
+        //     this.setState({
+        //         sysTime
+        //     });
+        // }, 1000);
 
         this.getWeatherAPIData();
     }

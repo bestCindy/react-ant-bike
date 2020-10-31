@@ -7,7 +7,6 @@ import Home from "./pages/home";
 import "./style/common.less";
 
 class Admin extends Component {
-    state = {  }
     render() { 
         return (  
             <Row className="container">
@@ -17,8 +16,8 @@ class Admin extends Component {
                 <Col span="21" className="main">
                     <Header></Header>
                     <Row className="content">
-                        <Home />
-                        {/* This is content */}
+                        {/* <Home /> */}
+                        { this.props.children }
                     </Row>
                     <Footer />
                 </Col>
