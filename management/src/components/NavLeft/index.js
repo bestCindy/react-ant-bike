@@ -49,7 +49,7 @@ class NavLeft extends Component {
             </Menu.Item>
         })
     }
-
+  
     render() {
         return (
             <div>
