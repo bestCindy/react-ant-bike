@@ -16,16 +16,16 @@ const menuList = [
                 key:'/admin/ui/modals',
             },
             {
-                title:'Loading',
+                title:'Loadings',
                 key:'/admin/ui/loadings',
             },
             {
                 title:'通知提醒',
-                key:'/admin/ui/notification',
+                key:'/admin/ui/notice',
             },
             {
                 title:'全局Message',
-                key:'/admin/ui/messages',
+                key:'/admin/ui/message',
             },
             {
                 title:'Tab页签',
