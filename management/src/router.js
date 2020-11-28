@@ -10,6 +10,11 @@ import Loadings from './pages/ui/loadings';
 import Notice from './pages/ui/notice';
 import Message from './pages/ui/message';
 import Tab from './pages/ui/tabs';
+import Gallery from './pages/ui/gallery';
+import Carousels from './pages/ui/carousel';
+import FormLogin from './pages/form/login';
+import basicTable from './pages/table/basicTable'
+import City from './pages/city/city.js'
 
 class IRouter extends Component {
     constructor(props) {
@@ -31,6 +36,11 @@ class IRouter extends Component {
                                 <Route exact path="/admin/ui/notice" component={ Notice } />
                                 <Route exact path="/admin/ui/message" component={ Message } />
                                 <Route exact path="/admin/ui/tabs" component={ Tab } />
+                                <Route exact path="/admin/ui/gallery" component={ Gallery } />
+                                <Route exact path="/admin/ui/carousel" component={ Carousels } />
+                                <Route exact path="/admin/form/login" component={ FormLogin } />
+                                <Route exact path="/admin/table/basic" component={ basicTable } />
+                                <Route exact path="/admin/city" component={ City } />
                                 <Route component={ NoMatch } />
                             </Switch>
                         </Admin>
